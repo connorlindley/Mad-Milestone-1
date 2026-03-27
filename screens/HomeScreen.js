@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
+import { TouchableOpacity } from "react-native";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>THE TO-DO LIST</Text>
@@ -13,8 +14,12 @@ const HomeScreen = () => {
         <Text style={styles.row}>Walk the dog</Text>
         <Text style={styles.row}>Complete the quiz</Text>
       </View>
-
-      <Text style={styles.newToDo}>Add New To-Do</Text>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => navigation.navigate("newToDo")}
+      >
+        <Text style={styles.buttonText}>Add New To-Do</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -50,20 +55,23 @@ const styles = StyleSheet.create({
     borderBottomColor: "#eee",
     color: "#444",
   },
-
-  newToDo: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#ffffff",
-    backgroundColor: "#1c95e6",
-    margin: 20,
-    padding: 10,
-    borderRadius: 10,
-    textAlign: "center",
+  buttonStyle: {
     position: "absolute",
     bottom: 20,
-    left: 0,
-    right: 0,
+    left: 20,
+    right: 20,
+    backgroundColor: "#1c95e6",
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 20,
+    alignSelf: "center",
+    justifyContent: "stretch",
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 24,
+    textAlign: "center",
   },
 });
 
