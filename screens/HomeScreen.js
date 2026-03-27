@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import { TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -14,10 +14,17 @@ const HomeScreen = ({ navigation }) => {
         <Text style={styles.row}>Walk the dog</Text>
         <Text style={styles.row}>Complete the quiz</Text>
       </View>
+
       <TouchableOpacity
         style={styles.buttonStyle}
-        onPress={() => navigation.navigate("newToDo")}
+        onPress={() => navigation.navigate("New To Do")}
       >
+        <Ionicons
+          name="add-circle-outline"
+          size={28}
+          color="#ffffff"
+          style={styles.iconStyle}
+        />
         <Text style={styles.buttonText}>Add New To-Do</Text>
       </TouchableOpacity>
     </View>
@@ -28,10 +35,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f2f4f7",
-    paddingTop: 60,
+    paddingTop: 20,
     paddingHorizontal: 20,
   },
-
   title: {
     fontSize: 24,
     fontWeight: "bold",
@@ -41,13 +47,11 @@ const styles = StyleSheet.create({
     borderBottomColor: "#333",
     borderBottomWidth: 1,
   },
-
   card: {
     backgroundColor: "#ffffff",
     borderRadius: 12,
     padding: 10,
   },
-
   row: {
     fontSize: 16,
     padding: 12,
@@ -61,17 +65,24 @@ const styles = StyleSheet.create({
     left: 20,
     right: 20,
     backgroundColor: "#1c95e6",
-    padding: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 40,
     borderRadius: 10,
-    marginTop: 20,
     alignSelf: "center",
-    justifyContent: "stretch",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
     fontSize: 24,
     textAlign: "center",
+  },
+  iconStyle: {
+    position: "absolute",
+    left: 20,
+    top: "50%",
   },
 });
 
